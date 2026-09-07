@@ -143,6 +143,11 @@ mkdir -p "$DIST_DIR"
 mv -f "$ISO_SRC" "$DIST_DIR/$ISO_NAME"
 ( cd "$DIST_DIR" && sha256sum "$ISO_NAME" > "$ISO_NAME.sha256" )
 
+# The build runs as root (in the container, or under sudo), so the artefacts
+# would otherwise be root-owned and need sudo just to delete. Hand them back
+# to whoever owns the checkout.
+chown -R "$(stat -c '%u:%g' "$REPO_ROOT")" "$DIST_DIR" 2>/dev/null || true
+
 if [ "$KEEP_WORK" -eq 0 ]; then
     log "removing intermediate chroot to reclaim disk (keeping config + log)"
     rm -rf "$WORK_DIR/chroot" "$WORK_DIR/binary" || true
