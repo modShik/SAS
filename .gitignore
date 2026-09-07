@@ -1,0 +1,19 @@
+# Build output. ISOs are ~2-3 GB; GitHub rejects files over 100 MB, so
+# images are never committed — attach them to a Release instead.
+/dist/
+*.iso
+*.iso.sha256
+
+# live-build work tree, if someone points WORK_DIR inside the repo
+/build/
+/chroot/
+/binary/
+/cache/
+*.log
+
+# Editor / OS noise
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/

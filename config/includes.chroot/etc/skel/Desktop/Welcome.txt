@@ -1,0 +1,39 @@
+Welcome to SAS OS
+=================
+
+A Debian-based desktop with a development toolchain preinstalled.
+
+Recommended hardware
+--------------------
+  CPU          64-bit x86 (5th-gen Intel / equivalent AMD or newer)
+  RAM          2 GB minimum, 4 GB comfortable
+  Storage      25 GB
+  Firmware     BIOS or UEFI, both supported
+
+What is installed
+-----------------
+  Languages    Python 3, Node.js, Java (JDK), Go, Rust
+  Build tools  GCC/G++, Make, CMake, Autotools, pkg-config
+  Debugging    GDB, Valgrind, strace
+  Editors      Geany, Vim, Nano, Pluma
+  VCS/remote   Git, OpenSSH client and server, rsync
+  Browsers     Firefox ESR, Chromium
+  Office       LibreOffice Writer, Calc, Impress
+  Media        VLC, GIMP, Inkscape, Audacity
+
+Making it yours
+---------------
+  Wallpaper    Double-click "Change Wallpaper" on the desktop
+  Themes       Menu > Preferences > Customize Look and Feel
+  Menu editing Menu > Preferences > Menu Editor
+  Packages     Menu > System Tools > Synaptic Package Manager
+
+Notes
+-----
+  * Your account was created during installation and has sudo access.
+    The root account is locked by design; use "sudo" instead.
+  * The desktop right-click menu is the fastest way around LXDE.
+  * SSH is installed but the service is not enabled by default. Turn it on
+    with: sudo systemctl enable --now ssh
+
+Enjoy the system.

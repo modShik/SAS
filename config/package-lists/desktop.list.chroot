@@ -1,0 +1,51 @@
+# End-user applications, themes and fonts.
+
+# --- Browsers ---
+firefox-esr
+chromium
+
+# --- Editors / office ---
+pluma
+libreoffice-writer
+libreoffice-calc
+libreoffice-impress
+
+# --- Disk & archive utilities ---
+file-roller
+xarchiver
+gparted
+gnome-disk-utility
+baobab
+
+# --- Accessories ---
+galculator
+gpicview
+transmission-gtk
+synaptic
+menulibre
+neofetch
+
+# --- Media & graphics ---
+vlc
+gimp
+inkscape
+audacity
+
+# --- Wallpaper setters ---
+nitrogen
+feh
+
+# --- Themes / icons / cursors ---
+gtk2-engines
+gtk2-engines-murrine
+gtk2-engines-pixbuf
+arc-theme
+papirus-icon-theme
+numix-gtk-theme
+breeze-cursor-theme
+
+# --- Fonts ---
+fonts-dejavu
+fonts-liberation
+fonts-noto
+fonts-ubuntu

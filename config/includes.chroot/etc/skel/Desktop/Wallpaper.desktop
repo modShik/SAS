@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Change Wallpaper
+Comment=Pick a desktop background
+Icon=preferences-desktop-wallpaper
+Exec=nitrogen /usr/share/backgrounds/sasos
+Terminal=false
+Categories=Settings;DesktopSettings;

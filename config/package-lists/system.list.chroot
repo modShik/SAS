@@ -1,0 +1,69 @@
+# Base system: desktop session, display manager, drivers, firmware, networking.
+# One package per line. Comments and blank lines are ignored by live-build.
+
+# --- Desktop environment (LXDE) ---
+task-lxde-desktop
+lxde
+lxde-common
+lxpanel
+lxsession
+lxappearance
+lxterminal
+openbox
+obconf
+pcmanfm
+
+# --- Display manager / X11 ---
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+xorg
+xserver-xorg-video-all
+xserver-xorg-input-all
+
+# --- Boot splash ---
+plymouth
+plymouth-themes
+desktop-base
+
+# --- Init / system services ---
+systemd-sysv
+dbus
+udev
+
+# --- Live boot support ---
+# Required for the "Try SAS OS" session and, more importantly, for the
+# installer: debian-installer runs in `live` mode, which copies this squashfs
+# straight onto the disk instead of re-downloading packages. Remove these and
+# the installer has nothing to install.
+live-boot
+live-config
+live-config-systemd
+
+# --- Networking ---
+network-manager
+network-manager-gnome
+wireless-tools
+wpasupplicant
+
+# --- Firmware (requires non-free-firmware archive area) ---
+firmware-linux
+firmware-linux-free
+firmware-linux-nonfree
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+
+# --- Bluetooth ---
+bluez
+bluez-tools
+
+# --- Audio ---
+pulseaudio
+pavucontrol
+alsa-utils
+
+# --- Misc essentials ---
+sudo
+locales
+ca-certificates

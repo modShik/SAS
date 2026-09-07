@@ -1,0 +1,36 @@
+#!/bin/bash
+# Runs inside the chroot during `lb build`.
+#
+# Only genuinely *runtime* work belongs here. Static configuration files live
+# in config/includes.chroot/ and are copied in verbatim by live-build.
+set -eu
+
+echo "I: [sas] applying system tweaks"
+
+# --- Identity -----------------------------------------------------------
+# Note: the installer overwrites this with the hostname the user picks; this
+# value is what the live/installer environment itself reports.
+echo "sasos" > /etc/hostname
+grep -q '127.0.1.1[[:space:]]\+sasos' /etc/hosts || echo "127.0.1.1	sasos" >> /etc/hosts
+
+# --- Locale -------------------------------------------------------------
+grep -q '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+update-locale LANG=en_US.UTF-8
+
+# --- Permissions on the shipped skeleton --------------------------------
+# includes.chroot preserves modes from git, but be explicit so a bad umask
+# upstream can't produce a desktop full of non-launchable icons.
+if [ -d /etc/skel/Desktop ]; then
+    chmod 0755 /etc/skel/Desktop/*.desktop 2>/dev/null || true
+fi
+if [ -d /usr/share/backgrounds/sasos ]; then
+    chmod 0644 /usr/share/backgrounds/sasos/* 2>/dev/null || true
+fi
+
+# --- Trim the image -----------------------------------------------------
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+rm -rf /tmp/* /var/tmp/*
+
+echo "I: [sas] system tweaks done"
